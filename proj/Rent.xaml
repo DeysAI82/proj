@@ -1,0 +1,27 @@
+﻿<Window x:Class="proj.Rent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:proj"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Rent">
+
+    <Grid>
+        <ListView ItemsSource="{Binding Rentals}"
+          SelectedItem="{Binding SelectedRental, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Техника" DisplayMemberBinding="{Binding Equipment.Name}" />
+                    <GridViewColumn Header="С" DisplayMemberBinding="{Binding StartDate}" />
+                    <GridViewColumn Header="По" DisplayMemberBinding="{Binding EndDate}" />
+                    <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Меню"
+                Height="45" Width="140" Click="Button_Click" Margin="330,379,330,10"/>
+        <Button Content="Удалить" Height="40" Width="130" Margin="335,331,335,63" RenderTransformOrigin="0.508,1.154" Command="{Binding DeleteCommand}"/>
+    </Grid>
+</Window>
